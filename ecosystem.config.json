@@ -1,0 +1,39 @@
+{
+  "apps": [
+    {
+      "name": "p52aicharacter-backend-production",
+      "script": "dist/main.js",
+      "instances": 1,
+      "autorestart": true,
+      "watch": false,
+      "time": true,
+      "cwd": "/home/p52aicharacter-backend-production/current",
+      "error_file": "/home/p52aicharacter-backend-production/logs/web.err.log",
+      "out_file": "/home/p52aicharacter-backend-production/logs/web.out.log",
+      "exec_mode": "cluster",
+      "env": {
+        "NODE_ENV": "production"
+      },
+      "env_production": {
+        "NODE_ENV": "production"
+      }
+    }
+  ],
+  "deploy": {
+    "develop": {
+      "user": "root",
+      "host": [
+        "103.21.221.241"
+      ],
+      "ref": "origin/master",
+      "repo": "git@gitlab.com:izisoftware2020/p52aicharacter-backend.git",
+      "path": "/home/p52aicharacter-backend-test",
+      "post-setup": "yarn install; yarn build; pm2 start ecosystem.config.json --env production",
+      "post-deploy": "yarn install; yarn build; pm2 restart ecosystem.config.json --env production",
+      "ssh_options": [
+        "StrictHostKeyChecking=no",
+        "PasswordAuthentication=no"
+      ]
+    }
+  }
+}
