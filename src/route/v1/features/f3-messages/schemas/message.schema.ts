@@ -23,9 +23,6 @@ export class Message {
   @Prop({ type: String, default: '' })
   replyFromBot: string;
 
-  @Prop({ type: [String], default: [] })
-  suggestionQuestions: string;
-
   @Prop({ type: String, enum: TypeChatGPTEnum, default: TypeChatGPTEnum.GPT35 })
   typeChatGPT: TypeChatGPTEnum;
 }

@@ -124,7 +124,7 @@ export default class MessageController {
   @Post('')
   @HttpCode(201)
   async create(@Body() body: CreateMessageDto): Promise<any> {
-    return this.messageService.create(body);
+    return this.messageService.createMessage(body);
   }
 
   /**

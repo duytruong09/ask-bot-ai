@@ -6,6 +6,7 @@ import MessageController from './message.controller';
 import MessageRepository from './message.repository';
 import MessageService from './message.service';
 import BotService from '@lazy-module/bots/bot.service';
+import SubSuggestionModule from '@features/f2-subsuggestions/sub-suggestion.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import BotService from '@lazy-module/bots/bot.service';
         schema: MessageSchema,
       },
     ]),
+    SubSuggestionModule,
   ],
   controllers: [MessageController],
   providers: [MessageService, MessageRepository, BotService],

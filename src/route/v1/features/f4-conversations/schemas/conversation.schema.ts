@@ -6,20 +6,17 @@ import { TypeChatEnum } from '../enum/type-chat.enum';
 
 @Schema({ timestamps: true, versionKey: false })
 export class Conversation {
-  @Prop({ type: String, ref: 'Suggestion' })
-  suggestionId: string;
+  @Prop({ type: String, ref: 'SubSuggestion' })
+  subSuggestionId: string;
 
   @Prop({ type: String, ref: 'User' })
   userId: string;
 
-  @Prop({ type: Object, required: true })
-  title: MultiLanguage;
+  @Prop({ type: String, default: '' })
+  title: string;
 
   @Prop({ type: String })
-  firstMessage: string;
-
-  @Prop({ type: String })
-  firstReplyMessage: string;
+  latestReplyMessage: string;
 
   @Prop({
     type: String,

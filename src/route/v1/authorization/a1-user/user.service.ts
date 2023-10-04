@@ -327,8 +327,8 @@ export default class UserService extends BaseService<UserDocument> {
     this.logger.log('Total collections: ', admin?.groupDetails?.length);
   }
 
-  async increaseCountMessages(characterId: string, count = 1) {
-    return this.userRepository.updateOneById(characterId, {
+  async increaseCountMessages(userId: any, count = 1) {
+    return this.userRepository.updateOneById(userId, {
       $inc: {
         countMessages: count,
       },

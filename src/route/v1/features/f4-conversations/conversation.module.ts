@@ -8,7 +8,6 @@ import {
 import ConversationController from './conversation.controller';
 import ConversationRepository from './conversation.repository';
 import ConversationService from './conversation.service';
-import MessageModule from '@features/f3-messages/message.module';
 
 @Global()
 @Module({
@@ -19,7 +18,6 @@ import MessageModule from '@features/f3-messages/message.module';
         schema: ConversationSchema,
       },
     ]),
-    MessageModule,
   ],
   controllers: [ConversationController],
   providers: [ConversationService, ConversationRepository],
